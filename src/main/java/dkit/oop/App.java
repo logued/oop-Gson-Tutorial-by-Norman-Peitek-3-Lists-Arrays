@@ -69,3 +69,21 @@ public class App {
     }
 
 }
+
+//TODO  Implement the following Array of RiseTime objects.
+// Populate an ArrayList of RiseTime objects, then
+// Serialize and Deserialize them
+//  [
+//        {
+//        "duration": 529,
+//        "risetime": 1646759846
+//        },
+//        {
+//        "duration": 635,
+//        "risetime": 1646765582
+//        },
+//        {
+//        "duration": 226,
+//        "risetime": 1646771636
+//        }
+//    ]
