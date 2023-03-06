@@ -1,17 +1,17 @@
 package dkit.oop;
 
-public class RestaurantMenuItem {
-    String description;
-    float price;
+public class MenuItem {
+    String description;     // e.g. Cod and Chips
+    float price;            // 12.50
 
-    public RestaurantMenuItem(String description, float price) {
+    public MenuItem(String description, float price) {
         this.description = description;
         this.price = price;
     }
 
     @Override
     public String toString() {
-        return "RestaurantMenuItem{" +
+        return "MenuItem{" +
                 "description='" + description + '\'' +
                 ", price=" + price +
                 '}';

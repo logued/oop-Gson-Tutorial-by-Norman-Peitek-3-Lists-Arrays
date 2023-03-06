@@ -1,22 +1,20 @@
 package dkit.oop;
-
 import java.util.List;
 
-public class RestaurantWithMenu {
+public class Restaurant {
     String name;
+    List<MenuItem> menu;
 
-    List<RestaurantMenuItem> menu;
-    //RestaurantMenuItem[] menu; // alternative, either one is fine
+    //MenuItem[] menu; // alternative, either one is fine
 
-
-    public RestaurantWithMenu(String name, List<RestaurantMenuItem> menu) {
+    public Restaurant(String name, List<MenuItem> menu) {
         this.name = name;
         this.menu = menu;
     }
 
     @Override
     public String toString() {
-        return "RestaurantWithMenu{" +
+        return "Restaurant{" +
                 "name='" + name + '\'' +
                 ", menu=" + menu +
                 '}';
