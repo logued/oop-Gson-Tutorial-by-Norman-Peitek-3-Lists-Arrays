@@ -102,8 +102,8 @@ public class App {
 // Initialize a string with this data.
 // Write an appropriate AstronautsInSpace class that stores a list of Astronauts.
 // Use the Gson parser to convert the string into an AstronautsInSpace object.
-// Output the objet.
-// Convert the object back to a JSON string.
+// Output the object.
+// Convert the object back to a JSON string and output.
 
 
 
