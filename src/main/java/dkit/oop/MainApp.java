@@ -5,27 +5,26 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Gson Tutorial 3 - Parsing Lists and Arrays
- *
  */
-public class App {
+public class MainApp {
     public static void main(String[] args) {
         System.out.println("Gson Tutorial 3 - parsing arrays and Lists");
-        App app = new App();
-        app.start();
+        MainApp mainApp = new MainApp();
+        mainApp.start();
     }
 
     public void start() {
+        // Create a list of menu items
         List<MenuItem> menu = new ArrayList<>();
         menu.add(new MenuItem("Spaghetti", 7.99f));
         menu.add(new MenuItem("Steak", 12.99f));
         menu.add(new MenuItem("Salad", 5.99f));
 
-        // Initialize an object that has a List field called "menu" that stores
+        // Initialize a Restaurant object that has a List field called "menu" that stores
         // a list of MenuItems. (List embedded in Object)
         Restaurant restaurant = new Restaurant("Fairways Steak House", menu);
 
@@ -33,7 +32,6 @@ public class App {
         String restaurantJsonString = gsonParser.toJson(restaurant);
         //note how the list is presented in the output with square brackets
         //  "{ "name":"Future...", "menu":[ {...."
-
 
         System.out.println("Restaurant object with Menu Items (as JSON String): ");
         System.out.println(restaurantJsonString);
@@ -63,25 +61,28 @@ public class App {
         //    embedded list (the "menu" field) of objects and generate
         //    a Java Object with an embedded Array ( Founder[] )
 
-
         //////////////// Founder sample ////////////////////
 
+        String founderJson = "[" +
+                                "{'name': 'Christian','flowerCount': 1}, " +
+                                "{'name': 'Marcus', 'flowerCount': 3}, " +
+                                "{'name': 'Norman', 'flowerCount': 2}" +
+                            "]";
 
-        String founderJson = "[{'name': 'Christian','flowerCount': 1}, {'name': 'Marcus', 'flowerCount': 3}, {'name': 'Norman', 'flowerCount': 2}]";
-
-        // To 'tell' the Gson parser that we are processing a list of objects
+        // To inform the Gson parser that we are processing a list of objects
         // that are to be mapped to an Array of Founder objects, we use
-        // the syntax Founder[].class. (Note the square brackets to indicate array).
+        // the syntax Founder[].class. (Note the square brackets indicate an array).
         // This will cause the Gson parser to return
-        // a reference to the newly created and populated Array of Founder objects.
-        Founder[] founderArray = gsonParser.fromJson(founderJson, Founder[].class);
+        // a reference to a newly created and populated Array of Founder objects.
+        Founder[] founderArray = gsonParser.fromJson(founderJson,Founder[].class);
 
         System.out.println("Founder array : ");
         for(Founder founder : founderArray)
             System.out.println("Founder: "+ founder);
 
         // Using TypeToken to configure Gson parser so that it will create an
-        // ArrayList of Founder objects.
+        // ArrayList of Founder objects.  The TypeToken is necessary to let the Gson
+        // parser know the type of object to generate.
 
         Type founderListType = new TypeToken<ArrayList<Founder>>(){}.getType();
 
@@ -106,13 +107,12 @@ public class App {
 // Convert the object back to a JSON string and output.
 
 
-
 //TODO  Q2
 // Implement the following Array of RiseTime objects.
 // Populate an ArrayList of RiseTime objects, then
 // Serialize and Deserialize them.
-// Note that the following is NOT in Json String Format !
-// so you must edit it to make it into a JSON String.
+// Note that the data below is NOT in Json String Format !
+// so you must edit it to make it into a JSON String. (use \" for ")
 //
 //  [
 //        {
